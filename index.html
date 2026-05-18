@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangul Blocks — Learn to Read Korean in 60 Minutes | Free Interactive Course</title>
+  <meta name="description" content="Learn to read Korean in 60 minutes — for free. Build Hangul syllables like LEGO blocks with our interactive method. No memorization, just logic.">
+  <meta name="keywords" content="learn hangul, learn korean, read korean, hangul blocks, korean alphabet, learn hangul fast, hangul in 1 hour, korean for beginners, kpop korean, free korean course">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hangul-blocks.vercel.app/">
+  <meta property="og:title" content="Hangul Blocks — Learn to Read Korean in 60 Minutes">
+  <meta property="og:description" content="Build Korean syllables like LEGO. Interactive, free, no signup.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Hangul Blocks","description":"Learn to read Korean in 60 minutes with interactive syllable building.","url":"https://hangul-blocks.vercel.app/","applicationCategory":"EducationalApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"demosaii"}}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7675527666098811" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#FFF8F0;--bg2:#FFF0E8;--bg3:#F5EDE4;
+      --ink:#1a1a2e;--ink2:#2d2d44;
+      --red:#D94452;--red-light:#FFE8EA;
+      --gold:#C4983C;--gold-light:#FFF6E0;
+      --teal:#2A6F6F;--teal-light:#E8F5F5;
+      --success:#2D8F4E;--success-light:#E8F8EE;
+      --text:#1a1a2e;--text2:#6B6B80;--text3:#aaa;
+      --card:rgba(0,0,0,0.03);--border:rgba(0,0,0,0.08);
+      --fk:'Noto Serif KR',serif;
+      --fb:'Outfit',sans-serif;
+      --fd:'Playfair Display',serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:var(--bg);color:var(--text);font-family:var(--fb);min-height:100vh;overflow-x:hidden;position:relative;}
+
+    /* INK TEXTURE OVERLAY */
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+      background:
+        radial-gradient(ellipse 300px 300px at 10% 20%, rgba(217,68,82,0.04), transparent),
+        radial-gradient(ellipse 250px 400px at 90% 70%, rgba(42,111,111,0.04), transparent),
+        radial-gradient(ellipse 200px 200px at 50% 10%, rgba(196,152,60,0.05), transparent);
+    }
+    body > *{position:relative;z-index:1;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes dropIn{from{transform:translateY(-24px) scale(0.7);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+    @keyframes buildPop{0%{transform:scale(0) rotate(-12deg);opacity:0}60%{transform:scale(1.1) rotate(2deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+    @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+    @keyframes correctGlow{0%{box-shadow:0 0 0 0 rgba(45,143,78,0.4)}100%{box-shadow:0 0 0 16px rgba(45,143,78,0)}}
+    @keyframes pulse{0%,100%{opacity:.3}50%{opacity:.7}}
+    @keyframes brushStroke{from{width:0}to{width:100%}}
+    @keyframes inkDrip{0%{opacity:0;transform:translateY(-10px)}100%{opacity:0.06;transform:translateY(0)}}
+
+    .ad-slot{text-align:center;overflow:hidden;margin:0 auto;}
+
+    .hdr{padding:12px 20px;max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+    .logo{font-family:var(--fk);color:var(--ink);font-size:18px;text-decoration:none;font-weight:700;}
+    .logo span{color:var(--red);}
+    .dl-btn{padding:6px 14px;font-size:11px;font-family:var(--fb);font-weight:600;background:var(--gold-light);color:var(--gold);border:1px solid rgba(196,152,60,0.3);border-radius:8px;cursor:pointer;text-decoration:none;transition:all .2s;}
+    .dl-btn:hover{background:var(--gold);color:#fff;}
+
+    .wrap{max-width:580px;margin:0 auto;padding:0 16px;}
+
+    /* HERO */
+    .hero{text-align:center;padding:36px 20px 16px;animation:fadeUp .7s ease;}
+    .hero-brush{width:60px;height:3px;background:var(--red);margin:0 auto 16px;border-radius:2px;opacity:0.5;}
+    .hero h1{font-family:var(--fd);font-size:clamp(28px,6vw,44px);color:var(--ink);line-height:1.15;font-weight:900;}
+    .hero .kr{font-family:var(--fk);color:var(--red);display:block;font-size:clamp(20px,4vw,32px);margin-top:6px;font-weight:900;}
+    .hero .sub{font-size:clamp(13px,2.2vw,16px);color:var(--text2);margin-top:14px;line-height:1.7;font-weight:300;}.hero .sub b{color:var(--ink);font-weight:700;}
+    .hero .hook{display:inline-block;margin-top:14px;padding:7px 20px;background:var(--gold-light);border:1px solid rgba(196,152,60,0.25);border-radius:50px;color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.5px;}
+    .start-btn{display:inline-block;margin-top:18px;padding:15px 48px;font-size:17px;font-family:var(--fk);background:var(--red);color:#fff;border:none;border-radius:14px;cursor:pointer;letter-spacing:1px;box-shadow:0 6px 24px rgba(217,68,82,0.25);transition:all .3s;font-weight:700;}.start-btn:hover{transform:scale(1.03);box-shadow:0 8px 30px rgba(217,68,82,0.35);}
+
+    /* GAME */
+    .game{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px 16px;min-height:380px;margin:12px 0;box-shadow:0 2px 20px rgba(0,0,0,0.04);animation:fadeUp .4s ease;}
+
+    .prog-wrap{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+    .prog-bar{flex:1;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
+    .prog-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:2px;transition:width .5s;}
+    .prog-lbl{font-size:11px;color:var(--text2);white-space:nowrap;}
+    .timer{font-family:var(--fk);font-size:14px;white-space:nowrap;font-weight:700;}
+
+    .pt{font-family:var(--fk);font-size:17px;color:var(--ink);text-align:center;margin-bottom:3px;font-weight:700;}
+    .ps{text-align:center;color:var(--text2);font-size:12px;margin-bottom:16px;}
+
+    /* INK LETTER */
+    .big{font-family:var(--fk);font-size:96px;font-weight:900;text-align:center;line-height:1;color:var(--ink);animation:dropIn .5s ease;
+      text-shadow:2px 2px 0 rgba(0,0,0,0.06);}
+    .rom{font-size:22px;color:var(--red);font-weight:700;text-align:center;margin-top:4px;font-family:var(--fd);}
+    .hint{font-size:12px;color:var(--gold);text-align:center;margin-top:5px;font-style:italic;}
+    .sbtn{display:flex;align-items:center;gap:5px;margin:8px auto 0;padding:6px 14px;background:var(--red-light);border:1px solid rgba(217,68,82,0.2);border-radius:8px;color:var(--red);font-size:11px;cursor:pointer;font-family:var(--fb);}.sbtn:hover{background:rgba(217,68,82,0.15);}
+
+    /* LEARNED GRID */
+    .lr{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin:12px 0;}
+    .lc{width:36px;height:40px;background:var(--bg);border:1.5px solid var(--border);border-radius:7px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--fk);font-size:18px;font-weight:700;transition:all .3s;}
+    .lc.done{border-color:var(--success);background:var(--success-light);}
+    .lc.cur{border-color:var(--red);background:var(--red-light);box-shadow:0 0 10px rgba(217,68,82,0.12);}
+    .lc.lock{opacity:.2;}
+    .lc .r{font-size:6px;color:var(--text2);margin-top:1px;font-family:var(--fb);}
+
+    /* QUIZ */
+    .qq{font-family:var(--fk);font-size:60px;font-weight:900;text-align:center;margin:12px 0;color:var(--ink);}
+    .ql{text-align:center;color:var(--text2);font-size:12px;margin-bottom:10px;}
+    .opts{display:grid;grid-template-columns:1fr 1fr;gap:7px;max-width:320px;margin:0 auto;}
+    .opt{padding:12px;font-size:15px;font-weight:600;background:var(--bg);border:2px solid var(--border);border-radius:10px;cursor:pointer;color:var(--ink);text-align:center;transition:all .2s;font-family:var(--fb);}
+    .opt:hover{border-color:var(--red);background:var(--red-light);}
+    .opt.correct{border-color:var(--success);background:var(--success-light);color:var(--success);animation:correctGlow .5s ease;}
+    .opt.wrong{border-color:var(--red);background:var(--red-light);color:var(--red);animation:shake .4s ease;}
+    .opt.dis{pointer-events:none;opacity:.5;}
+
+    /* BUILD */
+    .slots{display:flex;gap:5px;justify-content:center;margin-bottom:12px;}
+    .slot{width:54px;height:60px;border:2.5px dashed rgba(217,68,82,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--fk);font-size:26px;font-weight:900;color:var(--text3);background:rgba(217,68,82,0.02);transition:all .3s;}
+    .slot.filled{border-style:solid;border-color:var(--red);color:var(--ink);background:var(--red-light);animation:buildPop .4s ease;}
+    .rblock{text-align:center;margin:10px 0;}
+    .rchar{font-family:var(--fk);font-size:68px;font-weight:900;color:var(--red);animation:buildPop .6s ease;line-height:1;text-shadow:2px 2px 0 rgba(217,68,82,0.1);}
+    .rrom{font-size:17px;color:var(--teal);font-weight:700;margin-top:2px;font-family:var(--fd);}
+    .rmean{font-size:11px;color:var(--text2);margin-top:2px;}
+    .tray{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+    .piece{padding:9px 16px;font-family:var(--fk);font-size:22px;font-weight:900;background:var(--bg);border:2px solid var(--border);border-radius:9px;cursor:pointer;user-select:none;-webkit-user-select:none;transition:all .2s;}
+    .piece:hover{border-color:var(--gold);transform:scale(1.05);background:var(--gold-light);}
+    .piece.used{opacity:.15;pointer-events:none;}
+
+    /* BUTTONS */
+    .btn{padding:10px 24px;font-size:13px;font-family:var(--fk);border:none;border-radius:10px;cursor:pointer;transition:all .2s;letter-spacing:.5px;font-weight:700;}
+    .btn-m{background:var(--red);color:#fff;box-shadow:0 3px 12px rgba(217,68,82,0.2);}.btn-m:hover{transform:scale(1.03);}.btn-m:disabled{opacity:.3;cursor:default;transform:none;}
+    .btn-g{background:var(--bg);color:var(--text2);border:1px solid var(--border);}
+    .brow{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap;}
+    .fb{text-align:center;margin-top:10px;font-size:14px;font-weight:700;min-height:22px;}
+
+    /* RESULTS */
+    .score-big{font-family:var(--fd);font-size:48px;color:var(--red);text-align:center;}
+    .score-sub{text-align:center;color:var(--text2);font-size:12px;margin-top:4px;}
+    .roast-card{background:var(--red-light);border:2px solid rgba(217,68,82,0.15);border-radius:16px;padding:20px 16px;max-width:420px;margin:12px auto;text-align:center;}
+    .roast-label{font-size:9px;color:var(--red);letter-spacing:4px;margin-bottom:6px;font-family:var(--fk);font-weight:700;}
+    .roast-text{font-size:14px;line-height:1.6;color:var(--ink);}
+    .cert{background:var(--gold-light);border:2px solid rgba(196,152,60,0.2);border-radius:16px;padding:22px 16px;max-width:360px;margin:12px auto;text-align:center;}
+    .cert-t{font-family:var(--fk);font-size:13px;color:var(--gold);letter-spacing:2px;font-weight:700;}
+    .cert-h{font-family:var(--fk);font-size:20px;margin:8px 0;color:var(--ink);font-weight:900;}
+    .cert-d{font-size:10px;color:var(--text2);}
+
+    /* SEO */
+    .seo{max-width:620px;margin:32px auto;padding:0 20px;}
+    .seo h2{font-family:var(--fd);color:var(--ink);font-size:18px;margin:24px 0 8px;padding-left:12px;border-left:3px solid var(--red);}
+    .seo p{color:var(--text2);font-size:13px;line-height:1.8;font-weight:300;margin-bottom:8px;}
+    .footer{border-top:1px solid var(--border);padding:18px;text-align:center;color:var(--text3);font-size:10px;max-width:620px;margin:0 auto;}
+  </style>
+</head>
+<body>
+<header class="hdr">
+  <a href="/" class="logo">🖌️ HANGUL <span>BLOCKS</span></a>
+  <a href="hangul-chart.pdf" download class="dl-btn">📥 Download Chart (PDF)</a>
+</header>
+
+<div class="ad-slot" style="max-width:728px;margin:6px auto;"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7675527666098811" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="wrap" id="app"></div>
+
+<section class="seo">
+  <h2>What is Hangul?</h2>
+  <p>Hangul (한글) is the Korean alphabet, created in 1443 by King Sejong the Great. The letter shapes represent mouth and tongue positions, making it one of the most logical alphabets ever designed.</p>
+  <h2>Why "Blocks"?</h2>
+  <p>Korean letters stack into square blocks. ㅎ (h) + ㅏ (a) + ㄴ (n) = 한 (han). Once you get this, reading Korean is like assembling LEGO.</p>
+  <h2>Can I Really Learn in 60 Minutes?</h2>
+  <p>Yes. Hangul has only 24 basic letters. Most people read simple words by minute 30 with our method.</p>
+</section>
+
+<div class="ad-slot" style="max-width:728px;margin:0 auto 12px;"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7675527666098811" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<footer class="footer">&copy; 2026 Hangul Blocks by demosaii. Free Korean learning tool.</footer>
+
+<script>
+// INTERLEAVED: 4 vowels, 4 consonants, build, 4 vowels, 4+2 consonants, build, final
+const GROUPS=[
+  {label:'Vowels Set 1 · 모음',type:'v',letters:[
+    {c:'ㅏ',r:'a',h:'"Ah!" — stick pointing right'},
+    {c:'ㅓ',r:'eo',h:'"Uh?" — stick pointing left'},
+    {c:'ㅗ',r:'o',h:'"Oh!" — stick pointing up'},
+    {c:'ㅜ',r:'u',h:'"Oo" — stick pointing down'},
+  ]},
+  {label:'Consonants Set 1 · 자음',type:'c',letters:[
+    {c:'ㄱ',r:'g',h:'Gun shape — "g"'},
+    {c:'ㄴ',r:'n',h:'Nose shape — "n"'},
+    {c:'ㄷ',r:'d',h:'Door shape — "d"'},
+    {c:'ㄹ',r:'r/l',h:'Rattlesnake — "r/l"'},
+  ]},
+  {label:'Build Time!',type:'build',items:[
+    {p:['ㄱ','ㅏ'],res:'가',rom:'ga',m:'"ga" — 가수 (singer)'},
+    {p:['ㄴ','ㅏ'],res:'나',rom:'na',m:'"na" — I / me'},
+    {p:['ㄷ','ㅗ'],res:'도',rom:'do',m:'"do" — also / way'},
+  ]},
+  {label:'Vowels Set 2 · 모음',type:'v',letters:[
+    {c:'ㅡ',r:'eu',h:'Flat lips — "euh"'},
+    {c:'ㅣ',r:'i',h:'"ee!" — standing tall'},
+    {c:'ㅐ',r:'ae',h:'"eh?" — double stick right'},
+    {c:'ㅔ',r:'e',h:'Similar "eh" — double stick left'},
+  ]},
+  {label:'Consonants Set 2 · 자음',type:'c',letters:[
+    {c:'ㅁ',r:'m',h:'Mouth square — "m"'},
+    {c:'ㅂ',r:'b',h:'Bucket — "b"'},
+    {c:'ㅅ',r:'s',h:'Mountain — "s"'},
+    {c:'ㅇ',r:'ng',h:'Circle = silent / ng'},
+  ]},
+  {label:'Build Time!',type:'build',items:[
+    {p:['ㅁ','ㅏ'],res:'마',rom:'ma',m:'"ma" — 엄마 (mom)'},
+    {p:['ㅅ','ㅏ'],res:'사',rom:'sa',m:'"sa" — 사랑 (love)'},
+    {p:['ㅂ','ㅣ'],res:'비',rom:'bi',m:'"bi" — rain 🌧️'},
+  ]},
+  {label:'Consonants Set 3 · 자음',type:'c',letters:[
+    {c:'ㅈ',r:'j',h:'Jester hat — "j"'},
+    {c:'ㅊ',r:'ch',h:'Chief hat — "ch"'},
+    {c:'ㅋ',r:'k',h:'Harder kick — "k"'},
+    {c:'ㅌ',r:'t',h:'Top door — "t"'},
+    {c:'ㅍ',r:'p',h:'Greek Pi — "p"'},
+    {c:'ㅎ',r:'h',h:'Hat person — "h"'},
+  ]},
+  {label:'Build Master!',type:'build',items:[
+    {p:['ㅎ','ㅏ','ㄴ'],res:'한',rom:'han',m:'"han" — 한국 (Korea)'},
+    {p:['ㄱ','ㅜ','ㄱ'],res:'국',rom:'guk',m:'"guk" — 한국 = Korea! 🇰🇷'},
+    {p:['ㄹ','ㅏ','ㅇ'],res:'랑',rom:'rang',m:'사랑 = love ❤️'},
+  ]},
+];
+
+const FINALS=[
+  {w:'한국',r:'han-guk',m:'Korea 🇰🇷'},{w:'사랑',r:'sa-rang',m:'Love ❤️'},
+  {w:'김치',r:'gim-chi',m:'Kimchi 🌶️'},{w:'커피',r:'keo-pi',m:'Coffee ☕'},
+  {w:'노래',r:'no-rae',m:'Song 🎵'},{w:'친구',r:'chin-gu',m:'Friend 🤝'},
+  {w:'음악',r:'eum-ak',m:'Music 🎶'},{w:'학교',r:'hak-gyo',m:'School 🏫'},
+];
+
+const ROASTS={
+  terrible:["King Sejong made Hangul so ANYONE could learn it. He didn't plan for you. 💀","24 letters. ONE HOUR. And you still... 😭"],
+  bad:["Your Korean is at 'confused tourist at Incheon airport' level. 🛬","Half right is half wrong. Keep going! 📉"],
+  okay:["Mid. You're the instant ramyeon of Korean learners. 🍜","You can probably read a menu now. Ordering correctly? Eh... 😅"],
+  good:["Respect! Your bias would be impressed. Probably. 🤔","You can read Korean! Plot twist: half the signs just say 'pharmacy'. 😂"],
+  amazing:["You CRUSHED it. Are you secretly Korean?! 🇰🇷","King Sejong designed Hangul for the people. You ARE the people now. 👑"]
+};
+
+const ALL_V=[...GROUPS.filter(g=>g.type==='v').flatMap(g=>g.letters)];
+const ALL_C=[...GROUPS.filter(g=>g.type==='c').flatMap(g=>g.letters)];
+const ALL_L=[...ALL_V,...ALL_C];
+
+let S={screen:'home',steps:[],si:0,ans:false,bs:[],fs:0,ri:0,nr:false,nt:null,st:null,ti:null,el:0};
+const app=document.getElementById('app');
+
+function speak(t){if('speechSynthesis' in window){const u=new SpeechSynthesisUtterance(t);u.lang='ko-KR';u.rate=0.8;speechSynthesis.speak(u);}}
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+function mkOpts(correct,pool,key){
+  const w=pool.filter(x=>x[key]!==correct).sort(()=>Math.random()-.5).slice(0,3).map(x=>x[key]);
+  return [correct,...w].sort(()=>Math.random()-.5);
+}
+
+function buildSteps(){
+  const st=[];
+  for(const group of GROUPS){
+    if(group.type==='v'||group.type==='c'){
+      const pool=group.type==='v'?ALL_V:ALL_C;
+      for(let i=0;i<group.letters.length;i++){
+        st.push({t:'learn',d:group.letters[i],g:group.type,label:group.label,i,n:group.letters.length});
+        st.push({t:'quiz',prompt:group.letters[i].c,answer:group.letters[i].r,
+          opts:mkOpts(group.letters[i].r,pool,'r'),label:'What sound is this?'});
+      }
+      // Review round for this group
+      st.push({t:'review',label:'Review: '+group.label,
+        qs:group.letters.map(l=>({prompt:l.c,answer:l.r,opts:mkOpts(l.r,pool,'r')}))
+      });
+    } else if(group.type==='build'){
+      group.items.forEach(b=>st.push({t:'build',d:b,label:group.label}));
+    }
+  }
+  // Final test
+  FINALS.forEach(w=>{
+    const wrong=FINALS.filter(x=>x!==w).sort(()=>Math.random()-.5).slice(0,3);
+    st.push({t:'final',d:w,opts:[w.r,...wrong.map(x=>x.r)].sort(()=>Math.random()-.5)});
+  });
+  return st;
+}
+
+function render(){
+  if(S.screen==='home')renderHome();
+  else if(S.screen==='game')renderGame();
+  else renderResults();
+}
+
+function renderHome(){
+  app.innerHTML=`<section class="hero">
+    <div class="hero-brush"></div>
+    <h1>HANGUL BLOCKS<span class="kr">한글 블록</span></h1>
+    <p class="sub">Learn to read Korean in <b>60 minutes</b>.<br>No memorization. Just <b>build blocks</b> like LEGO.</p>
+    <div class="hook">🏆 You'll read real Korean words in under 5 minutes</div>
+    <br><button class="start-btn" onclick="go()">Start Challenge ▶</button>
+  </section>`;
+}
+
+function pb(){
+  const pct=Math.round((S.si/S.steps.length)*100);
+  const el=S.el;const col=el<300?'var(--success)':el<540?'var(--gold)':'var(--red)';
+  return `<div class="prog-wrap"><div class="prog-lbl">${pct}%</div><div class="prog-bar"><div class="prog-fill" style="width:${pct}%"></div></div><div class="timer" id="tmr" style="color:${col}">${fmt(Math.max(0,3600-el))}</div></div>`;
+}
+
+function lgrid(letters,ci){
+  return `<div class="lr">${letters.map((l,i)=>{
+    let cl='lc';if(i<ci)cl+=' done';else if(i===ci)cl+=' cur';else cl+=' lock';
+    return `<div class="${cl}"><span>${i<=ci?l.c:'?'}</span><span class="r">${i<=ci?l.r:''}</span></div>`;
+  }).join('')}</div>`;
+}
+
+function renderGame(){
+  if(S.si>=S.steps.length){finish();return;}
+  const s=S.steps[S.si];let h=pb();
+
+  if(s.t==='learn'){
+    h+=`<div class="pt">${s.label}</div>
+    <div class="ps">Letter ${s.i+1} of ${s.n} — study, then prove it!</div>
+    ${lgrid(GROUPS.find(g=>g.label===s.label).letters,s.i)}
+    <div class="big">${s.d.c}</div><div class="rom">${s.d.r}</div><div class="hint">${s.d.h}</div>
+    <button class="sbtn" onclick="speak('${s.d.c}')">🔊 Listen</button>
+    <div class="brow"><button class="btn btn-m" id="nb" ${S.nr?'':'disabled'} onclick="next()">${S.nr?'Got it →':'Wait...'}</button></div>
+    ${!S.nr?'<div style="text-align:center;color:var(--text3);font-size:10px;margin-top:4px;animation:pulse 1.2s ease infinite">Take a moment to study this letter...</div>':''}`;
+  }
+  else if(s.t==='quiz'){
+    h+=`<div class="pt">Mini Quiz</div><div class="ps">${s.label}</div>
+    <div class="qq">${s.prompt}</div>
+    <div class="opts">${s.opts.map(o=>`<button class="opt" onclick="aq(this,'${o}','${s.answer}')">${o}</button>`).join('')}</div>
+    <div class="fb" id="fb"></div>`;
+  }
+  else if(s.t==='review'){
+    if(!S.ri)S.ri=0;const q=s.qs[S.ri];
+    h+=`<div class="pt">🔄 ${s.label}</div><div class="ps">${S.ri+1} of ${s.qs.length}</div>
+    <div class="qq">${q.prompt}</div>
+    <div class="opts">${q.opts.map(o=>`<button class="opt" onclick="ar(this,'${o}','${q.answer}')">${o}</button>`).join('')}</div>
+    <div class="fb" id="fb"></div>`;
+  }
+  else if(s.t==='build'){
+    const d=s.d,af=S.bs.length===d.p.length;
+    const tray=d.p.map((p,i)=>({c:p,i})).sort(()=>Math.random()-.5);
+    h+=`<div class="pt">🧱 ${s.label}</div><div class="ps">Tap parts in order to build: <b>${d.rom}</b></div>
+    <div style="text-align:center">
+      <div class="slots">${d.p.map((_,i)=>`<div class="slot ${S.bs[i]?'filled':''}">${S.bs[i]||''}</div>`).join('')}</div>
+      ${af?`<div style="font-size:14px;color:var(--text3)">⬇</div><div class="rblock"><div class="rchar">${d.res}</div><div class="rrom">${d.rom}</div><div class="rmean">${d.m}</div></div>
+      <button class="sbtn" onclick="speak('${d.res}')">🔊 Listen</button>
+      <div class="brow"><button class="btn btn-m" onclick="next()">Next →</button></div>`
+      :`<div class="tray">${tray.map(p=>{
+        const uc=S.bs.filter(x=>x===p.c).length,tc=d.p.filter(x=>x===p.c).length;
+        return `<button class="piece ${uc>=tc?'used':''}" onclick="abp('${p.c}')">${p.c}</button>`;
+      }).join('')}</div><div class="brow"><button class="btn btn-g" onclick="rb()">Reset ↺</button></div>`}
+    </div>`;
+  }
+  else if(s.t==='final'){
+    const d=s.d,qn=S.steps.filter((x,i)=>x.t==='final'&&i<S.si).length+1,qt=FINALS.length;
+    h+=`<div class="pt">🏆 Final Test</div><div class="ps">${qn} of ${qt}</div>
+    <div class="qq">${d.w}</div>
+    <div class="opts">${s.opts.map(o=>`<button class="opt" onclick="af2(this,'${o}','${d.r}','${d.m}')">${o}</button>`).join('')}</div>
+    <div class="fb" id="fb"></div>`;
+  }
+  app.innerHTML=`<div class="game">${h}</div>`;
+  if(s.t==='learn')speak(s.d.c);
+}
+
+function renderResults(){
+  const pct=Math.round((S.fs/FINALS.length)*100);
+  let cat;if(pct<=20)cat='terrible';else if(pct<=40)cat='bad';else if(pct<=60)cat='okay';else if(pct<=80)cat='good';else cat='amazing';
+  const rs=ROASTS[cat],roast=rs[Math.floor(Math.random()*rs.length)];
+  const em={terrible:'💀',bad:'😬',okay:'😐',good:'💪',amazing:'👑'};
+  const sh=`Hangul Blocks 🧱\\nKorean in ${fmt(S.el)}!\\n${S.fs}/${FINALS.length} (${pct}%)\\nhttps://hangul-blocks.vercel.app/`;
+  app.innerHTML=`<div class="game" style="text-align:center;animation:fadeUp .6s ease">
+    <div style="font-size:48px;margin-bottom:6px">${em[cat]}</div>
+    <div class="score-big">${S.fs}/${FINALS.length}</div>
+    <div class="score-sub">${pct}% · ${fmt(S.el)}</div>
+    <div class="roast-card"><div class="roast-label">AI ROAST</div><div class="roast-text">${roast}</div></div>
+    <div class="cert"><div class="cert-t">📜 CERTIFICATE</div><div class="cert-h">한글 블록 수료증</div><div class="cert-d">${fmt(S.el)} · ${S.fs}/${FINALS.length} · ${new Date().toLocaleDateString()}</div></div>
+    <div class="brow">
+      <button class="btn btn-m" onclick="share()">Share 📤</button>
+      <a href="hangul-chart.pdf" download class="btn btn-g" style="text-decoration:none;display:inline-block">📥 Chart PDF</a>
+      <button class="btn btn-g" onclick="location.reload()">Again</button>
+    </div>
+  </div>`;
+}
+
+function go(){
+  S={screen:'game',steps:buildSteps(),si:0,ans:false,bs:[],fs:0,ri:0,nr:false,nt:null,st:Date.now(),ti:null,el:0};
+  S.ti=setInterval(()=>{S.el=Math.floor((Date.now()-S.st)/1000);const e=document.getElementById('tmr');if(e)e.textContent=fmt(Math.max(0,3600-S.el));if(S.el>=3600)finish();},1000);
+  delay();render();
+}
+function delay(){S.nr=false;clearTimeout(S.nt);S.nt=setTimeout(()=>{S.nr=true;const b=document.getElementById('nb');if(b){b.disabled=false;b.textContent='Got it →';}},3000);}
+function next(){S.si++;S.ans=false;S.bs=[];S.ri=0;S.nr=false;if(S.si<S.steps.length&&S.steps[S.si].t==='learn')delay();render();}
+
+function aq(el,ch,ans){
+  if(S.ans)return;S.ans=true;
+  document.querySelectorAll('.opt').forEach(o=>o.classList.add('dis'));
+  const fb=document.getElementById('fb');
+  if(ch===ans){el.classList.add('correct');fb.innerHTML=`<span style="color:var(--success)">✓ Correct!</span>`;speak(S.steps[S.si].prompt);}
+  else{el.classList.add('wrong');document.querySelectorAll('.opt').forEach(o=>{if(o.textContent.trim()===ans)o.classList.add('correct');});fb.innerHTML=`<span style="color:var(--red)">✗ It's "${ans}"</span>`;}
+  setTimeout(()=>{S.ans=false;next();},1200);
+}
+function ar(el,ch,ans){
+  if(S.ans)return;S.ans=true;
+  document.querySelectorAll('.opt').forEach(o=>o.classList.add('dis'));
+  const fb=document.getElementById('fb');
+  if(ch===ans){el.classList.add('correct');fb.innerHTML=`<span style="color:var(--success)">✓ Correct!</span>`;}
+  else{el.classList.add('wrong');document.querySelectorAll('.opt').forEach(o=>{if(o.textContent.trim()===ans)o.classList.add('correct');});fb.innerHTML=`<span style="color:var(--red)">✗ It's "${ans}"</span>`;}
+  setTimeout(()=>{S.ans=false;const s=S.steps[S.si];if(S.ri+1<s.qs.length){S.ri++;render();}else next();},1200);
+}
+function abp(c){const d=S.steps[S.si].d;if(S.bs.length<d.p.length){S.bs.push(c);render();if(S.bs.length===d.p.length)speak(d.res);}}
+function rb(){S.bs=[];render();}
+function af2(el,ch,ans,m){
+  if(S.ans)return;S.ans=true;
+  document.querySelectorAll('.opt').forEach(o=>o.classList.add('dis'));
+  const fb=document.getElementById('fb');
+  if(ch===ans){el.classList.add('correct');S.fs++;fb.innerHTML=`<span style="color:var(--success)">✓ ${m}</span>`;speak(S.steps[S.si].d.w);}
+  else{el.classList.add('wrong');document.querySelectorAll('.opt').forEach(o=>{if(o.textContent.trim()===ans)o.classList.add('correct');});fb.innerHTML=`<span style="color:var(--red)">✗ "${ans}" — ${m}</span>`;}
+  setTimeout(()=>{S.ans=false;next();},1500);
+}
+function finish(){clearInterval(S.ti);S.screen='results';render();}
+function share(){const t=`Hangul Blocks 🧱\nKorean in ${fmt(S.el)}!\n${S.fs}/${FINALS.length}\nhttps://hangul-blocks.vercel.app/`;if(navigator.share)navigator.share({title:'Hangul Blocks',text:t});else if(navigator.clipboard){navigator.clipboard.writeText(t);alert('Copied! 📋');}}
+render();
+</script>
+</body>
+</html>
